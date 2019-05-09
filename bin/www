@@ -5,8 +5,10 @@
  */
 
 var app = require('../app');
+var path = require('path');
 var debug = require('debug')('firstapp:server');
-var http = require('http');
+var https = require('https');
+var fs = require('fs');
 
 /**
  * Get port from environment and store in Express.
@@ -16,10 +18,16 @@ var port = normalizePort(process.env.PORT || '2000');
 app.set('port', port);
 
 /**
- * Create HTTP server.
+ * Create HTTPS server.
  */
+var privateKey = fs.readFileSync( 'bin/key.pem' );
+var certificate = fs.readFileSync( 'bin/cert.pem' );
 
-var server = http.createServer(app);
+var server = https.createServer({
+  key: privateKey,
+  cert: certificate,
+  passphrase: 'Truong94@@'
+}, app);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -50,7 +58,7 @@ function normalizePort(val) {
 }
 
 /**
- * Event listener for HTTP server "error" event.
+ * Event listener for HTTPS server "error" event.
  */
 
 function onError(error) {
@@ -78,7 +86,7 @@ function onError(error) {
 }
 
 /**
- * Event listener for HTTP server "listening" event.
+ * Event listener for HTTPS server "listening" event.
  */
 
 function onListening() {
