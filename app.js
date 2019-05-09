@@ -21,6 +21,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// app.use(function(req, res, next) {
+//   var reqType = req.headers["x-forwarded-proto"];
+//   reqType == 'https' ? next() : res.redirect("https://" + req.headers.host + req.url);
+// });
+
 app.use(indexRouter);
 app.use(usersRouter);
 
