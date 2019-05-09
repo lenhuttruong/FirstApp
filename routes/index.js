@@ -4,7 +4,7 @@ var path = require('path');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.redirect('http://sub1.' + req.host + ':' + normalizePort(process.env.PORT || '2000') + '/index');
+  res.redirect('https://sub1.' + req.host + ':' + normalizePort(process.env.PORT || '2000') + '/index');
 });
 router.get('/index', function(req, res, next) {
   res.sendFile('/index.html', {root: path.join(__dirname, '..')});
