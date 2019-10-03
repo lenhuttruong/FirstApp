@@ -5,9 +5,10 @@ var path = require('path');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   // res.sendFile('/index.html', {root: path.join(__dirname, '..')});
-  res.redirect('https://sub1.' + req.headers.host + '/index');
+  // res.redirect('http://sub1.' + req.headers.host + '/index.html');
+  res.redirect('/index.html');
 });
-router.get('/index', function(req, res, next) {
+router.get('/index.html', function(req, res, next) {
   res.sendFile('/index.html', {root: path.join(__dirname, '..')});
 });
 
