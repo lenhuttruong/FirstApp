@@ -4,7 +4,7 @@ var fs = require('fs');
 
 /* GET users listing. */
 router.get('/userList', function(req, res, next) {
-  // var privateKey = fs.readFileSync( '/key.pem', path.join(__dirname, '../bin') );
+  // var privateKey = fs.readFileSync('/key.pem', path.join(__dirname, '../bin') );
   res.send({msg: 'Test', url: req.headers});
   res.end();
 });

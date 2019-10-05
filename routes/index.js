@@ -5,26 +5,11 @@ var path = require('path');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   // res.sendFile('/index.html', {root: path.join(__dirname, '..')});
-  res.redirect('http://sub1.' + req.host + ':' + normalizePort(process.env.PORT || '2000') + '/index');
+  // res.redirect('http://sub1.' + req.headers.host + '/index.html');
+  res.redirect('/index.html');
 });
-router.get('/index', function(req, res, next) {
+router.get('/index.html', function(req, res, next) {
   res.sendFile('/index.html', {root: path.join(__dirname, '..')});
 });
-
-function normalizePort(val) {
-  var port = parseInt(val, 10);
-
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
-
-  if (port >= 0) {
-    // port number
-    return port;
-  }
-
-  return false;
-}
 
 module.exports = router;

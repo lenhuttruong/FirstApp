@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 node_modules
 .env
 clients/cautruc_client/node_modules
+=======
+#node_modules
+#.idea
+>>>>>>> 5a723d1f0ad97073321e7adc2227f1a55cec3d73
